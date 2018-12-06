@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="section-title text-center">
+    <h3>Write a Testimonial</h3>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
+    <form name="sentMessage" id="contactForm" (ngSubmit)=onSubmit(contact)>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" id="name" class="form-control" [(ngModel)]="contact.name" placeholder="Name" name="name">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="email" id="email" class="form-control" [(ngModel)]="contact.org" placeholder="Organisation" name="org">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="email" id="email" class="form-control" [(ngModel)]="contact.designation" placeholder="Designation" name="designation">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea id="message" class="form-control" rows="4" placeholder="Message" name="message" [(ngModel)]="contact.message">
+        </textarea>
+        <p class="help-block text-danger"></p>
+      </div>
+      <div id="success"></div>
+      <button type="submit" class="btn btn-default btn-lg">Add Testimonial</button>
+    </form>
+  </div>
+</div>
+<link rel="stylesheet" type="text/css"  href="../assets/css/bootstrap.css">

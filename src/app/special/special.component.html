@@ -4,26 +4,12 @@
       <h2>Our Specials</h2>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="features-item">
-          <h3>Lorem ipsum dolor</h3>
-          <img src="../assets/img/specials/1.jpg" class="img-responsive" alt="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="features-item">
-          <h3>Consectetur adipiscing</h3>
-          <img src="../assets/img/specials/2.jpg" class="img-responsive" alt="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="features-item">
-          <h3>Duis sed dapibus</h3>
-          <img src="../assets/img/specials/3.jpg" class="img-responsive" alt="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
-        </div>
+      <div class="col-xs-12 col-sm-4" *ngFor="let spec of special">
+          <div class="features-item">
+              <h3>{{ spec.heading}}</h3>
+              <img src="{{ spec.path }}" class="img-responsive" alt="">
+              <p>{{ spec.description }}</p>
+            </div>
       </div>
     </div>
   </div>
