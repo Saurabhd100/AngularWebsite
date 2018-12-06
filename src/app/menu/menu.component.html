@@ -8,7 +8,11 @@
             <div class="menu-section">
               <h2 class="menu-section-title">{{ mcategory }}</h2>
               <div class="menu-item" *ngFor="let m of menu | menuByCategory: mcategory">
-                <div class="menu-item-name">{{ m.name }}</div>
+                <div class="menu-item-name">{{ m.name }}
+                  &nbsp; <span style="background-color: red;" (click)="sub(m, qtyRef.name)">-</span>
+                  &nbsp;<input #qtyRef name="{{ m.name }}" [value]="0" disabled="disabled" style="width:40px" type="text">
+                  &nbsp; <span style="background-color: green" (click)="add(m, qtyRef.name, qtyRef.value)">+</span>
+                </div>
                 <div class="menu-item-price"> ${{ m.price }} </div>
                 <div class="menu-item-description">{{ m.desc }}</div>
               </div>

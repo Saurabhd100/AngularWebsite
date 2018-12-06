@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Menu } from '../menu';
 
 @Component({
@@ -7,6 +7,7 @@ import { Menu } from '../menu';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  @Input() quantity: number;
   menuCategory = [];
   menu = [
     { category: 'Breakfast & Starters', name: 'Tortellini Skewers', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, duis sed dapibus leo nec ornare diam.', price: 9},
@@ -32,7 +33,24 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.quantity = 0;
+
     this.menuCategory = this.menu.map(item => item.category).
     filter((value, index, self) => self.indexOf(value) === index);
+  }
+
+  sub(menu: Menu, name: string, qty: number): void {
+    console.log(menu);
+    console.log(name);
+    --qty;
+    console.log(qty);
+  }
+
+  add(menu: Menu, name: string, qty: number): number {
+    console.log(menu);
+    console.log(name);
+    qty++;
+    console.log(qty);
+    return qty;
   }
 }
