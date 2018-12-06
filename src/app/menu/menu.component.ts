@@ -34,6 +34,5 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.menuCategory = this.menu.map(item => item.category).
     filter((value, index, self) => self.indexOf(value) === index);
-    console.log(this.menuCategory);
   }
 }

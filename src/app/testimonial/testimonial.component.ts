@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
+import { TestimonialService } from '../testimonial.service';
 
 @Component({
   selector: 'app-testimonial',
@@ -7,15 +8,17 @@ import { Contact } from '../contact';
   styleUrls: ['./testimonial.component.css']
 })
 export class TestimonialComponent implements OnInit {
-  constructor() { }
+  constructor(private testimonialService: TestimonialService) { }
+  testimonial = [];
+
 
   ngOnInit() {
+    this.testimonialService.testimonial$.subscribe(data => {
+      this.testimonial = [];
+      this.testimonial.push(...data);
+      console.log(this.testimonial);
+    });
   }
 
-  testimonial = [
-    { name: 'Test1', org: 'xyz1', designation: 'abc1', testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-    { name: 'Test2', org: 'xyz2', designation: 'abc2', testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-    { name: 'Test3', org: 'xyz3', designation: 'abc3', testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-    { name: 'Test4', org: 'xyz4', designation: 'abc4', testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-  ];
+
 }

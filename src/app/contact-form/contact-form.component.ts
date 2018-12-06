@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
+import { TestimonialService } from '../testimonial.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,13 +9,14 @@ import { Contact } from '../contact';
 })
 export class ContactFormComponent implements OnInit {
   contact = new Contact();
-  constructor() { }
+  constructor(public testimonialService: TestimonialService) { }
 
   ngOnInit() {
   }
 
   onSubmit(data: Contact): void {
-    console.log(data);
+    this.testimonialService.addTestimonial(data);
+    this.contact = new Contact();
   }
 
 }
